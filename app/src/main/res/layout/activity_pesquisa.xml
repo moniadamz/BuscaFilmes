@@ -23,7 +23,7 @@
         android:id="@+id/pesquisaFilme"
         android:layout_width="135dp"
         android:layout_height="41dp"
-        android:background="#DD1515"
+        android:background="#C21717"
         android:text="@string/searchButton"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,7 +44,7 @@
 
         <ListView
             android:id="@+id/resultadoPesquisa"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="5dp"></ListView>
     </LinearLayout>
