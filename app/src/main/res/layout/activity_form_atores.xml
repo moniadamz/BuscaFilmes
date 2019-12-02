@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="@string/saveButton"
-        android:background="#488B4A" />
+        android:background="#C21717" />
 
     <ListView
         android:id="@+id/form_Activity_Lv_Atores"

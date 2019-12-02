@@ -36,6 +36,7 @@ public class FilmesDAO {
         Banco banco = new Banco(contexto);
         SQLiteDatabase db = banco.getWritableDatabase();
 
+        db.delete("atores" , "idfilme = " + idfilme , null);
         db.delete("filmes" , "idfilme = " + idfilme , null );
 
     }

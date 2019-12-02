@@ -2,6 +2,7 @@ package busca.filmes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -15,6 +16,7 @@ import java.util.List;
 public class Pesquisa extends AppCompatActivity {
     private Button pesquisar;
     private EditText digitaFilme;
+    private final ListaFilmesView listaFilmesView = new ListaFilmesView(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class Pesquisa extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 pesquisar();
+                configuraLista();
                 //pesquisarTudao();
             }
         });
@@ -49,6 +52,14 @@ public class Pesquisa extends AppCompatActivity {
         ArrayAdapter<Filme> adapter = new ArrayAdapter<Filme>(this, android.R.layout.simple_list_item_1, filme);
         listaFilmes.setAdapter(adapter);
     }
+
+    private void configuraLista() {
+        ListView listaDeFilmes = findViewById(R.id.resultadoPesquisa);
+//        listaFilmesView.configuraAdapter(listaDeFilmes);
+//        configuraListenerDeCliquePorItem(listaDeFilmes);
+        registerForContextMenu(listaDeFilmes);
+    }
+
     private void pesquisarTudao(){
         String nome = digitaFilme.getText().toString();
         List tudao = FilmesDAO.getFilmeByName(this, nome);
