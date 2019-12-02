@@ -1121,6 +1121,7 @@ id info
 id invisible
 id italic
 id item_touch_helper_previous_elevation
+id ivThumbnail
 id labeled
 id largeLabel
 id left
@@ -1129,6 +1130,7 @@ id line3
 id linearLayout
 id listMode
 id list_item
+id ly_movie
 id masked
 id message
 id middle
@@ -1227,6 +1229,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id tv_movieTitle
 id uniform
 id unlabeled
 id up
@@ -1302,6 +1305,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout modelo_filmes
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action

@@ -9,6 +9,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class FilmesDAO {
 
     public static void inserir(Context contexto, Filme filme){
@@ -76,13 +77,17 @@ public class FilmesDAO {
             return null;
         }
     }
-    public static List<Filme> getFilmeByName(Context contexto, String nomeFilme){
+
+    public static List<Filme> getFilmeByName(Context contexto, String nomeBusca){
         Banco banco = new Banco(contexto);
         SQLiteDatabase db = banco.getReadableDatabase();
         List<Filme> filme = new ArrayList<Filme>();
+        List<Ator> ator = new ArrayList<Ator>();
 
 //        String sql = "SELECT * FROM filmes where nome = " + nomeTime;
-        Cursor cursor = db.rawQuery("SELECT * FROM filmes where nome like '%" + nomeFilme + "%'", null);
+        //Cursor cursor = db.rawQuery("SELECT * FROM filmes where nome like '%" + nomeFilme + "%'", null);
+        Cursor cursor = db.rawQuery("SELECT e.nome, d.nome FROM filmes e, atores d where e.nome like '%" + nomeBusca + "%'" + " AND d.nome like '%" + nomeBusca + "%'", null);
+        Log.i("log do sql", "getFilmeByName: " + cursor);
 
         if ( cursor.getCount() > 0 ){
             cursor.moveToFirst();
@@ -91,9 +96,38 @@ public class FilmesDAO {
                 t.setId(  cursor.getInt( 0 ) );
                 t.setNome( cursor.getString( 1 ) );
                 filme.add( t );
+                Ator a = new Ator();
+                a.setId( cursor.getInt(0 ) );
+                a.setNome( cursor.getString(1));
+                ator.add( a );
             }while ( cursor.moveToNext() );
         }
-        Log.i("retornando filmes", "getTimeByName: " + filme);
+        Log.i("Retornando Flmes", "getTimeByName: " + filme);
+        Log.i("Retoanando Atores", "getFilmeByName: " + ator);
         return filme;
+    }
+
+    public static List getTudoByName(Context contexto, String nomeBusca){
+        Banco banco = new Banco(contexto);
+        SQLiteDatabase db = banco.getReadableDatabase();
+        List tudao = new ArrayList<>();
+
+        Cursor cursor = db.rawQuery("SELECT e.nome, d.nome FROM filmes e, atores d where e.nome like '%" + nomeBusca + "%'" + " AND d.nome like '%" + nomeBusca + "%'", null);
+
+        if ( cursor.getCount() > 0 ){
+            cursor.moveToFirst();
+            do{
+                Filme t = new Filme();
+                t.setId(  cursor.getInt( 0 ) );
+                t.setNome( cursor.getString( 1 ) );
+                tudao.add( t );
+                Ator a = new Ator();
+                a.setId( cursor.getInt(0 ) );
+                a.setNome( cursor.getString(1));
+                tudao.add( a );
+            }while ( cursor.moveToNext() );
+        }
+        Log.i("Retornando Filmes e tudo mais", "getTimeByName: " + tudao);
+        return tudao;
     }
 }

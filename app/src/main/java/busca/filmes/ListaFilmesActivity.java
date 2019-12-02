@@ -40,6 +40,7 @@ public class ListaFilmesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 abreFormFilmeActivity();
+                finish();
             }
         });
     }

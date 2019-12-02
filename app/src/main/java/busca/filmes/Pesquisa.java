@@ -29,13 +29,13 @@ public class Pesquisa extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 pesquisar();
-
+                //pesquisarTudao();
             }
         });
     }
     private void pesquisar(){
         String nome = digitaFilme.getText().toString();
-        List<Filme> filme = FilmesDAO.getFilmeByName(this, nome);
+        List<Filme> filme = FilmesDAO.getTudoByName(this, nome);
         ListView listaFilmes = (ListView) findViewById(R.id.resultadoPesquisa);
         if ( filme.size() == 0 ){
             listaFilmes.setEnabled( false );
@@ -48,5 +48,21 @@ public class Pesquisa extends AppCompatActivity {
 
         ArrayAdapter<Filme> adapter = new ArrayAdapter<Filme>(this, android.R.layout.simple_list_item_1, filme);
         listaFilmes.setAdapter(adapter);
+    }
+    private void pesquisarTudao(){
+        String nome = digitaFilme.getText().toString();
+        List tudao = FilmesDAO.getFilmeByName(this, nome);
+        ListView listaTudao = (ListView) findViewById(R.id.resultadoPesquisa);
+        if ( tudao.size() == 0 ){
+            listaTudao.setEnabled( false );
+            Filme fake = new Filme();
+            fake.setNome("TUDAO VAZIO!");
+            tudao.add( fake );
+        }else {
+            listaTudao.setEnabled( true );
+        }
+
+        ArrayAdapter<Filme> adapter = new ArrayAdapter<Filme>(this, android.R.layout.simple_list_item_1, tudao);
+        listaTudao.setAdapter(adapter);
     }
 }
