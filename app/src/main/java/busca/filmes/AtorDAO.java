@@ -16,15 +16,15 @@ public class AtorDAO {
 
         ContentValues valores = new ContentValues();
         valores.put( "nome", ator.getNome() );
+        valores.put("idFilme", ator.getFilme() );
 
-        db.insert("jogadores" , null , valores );
+        db.insert("atores" , null , valores );
     }
     public static void excluir(Context contexto, int idAtor){
         Banco banco = new Banco(contexto);
         SQLiteDatabase db = banco.getWritableDatabase();
 
-        db.delete("jogadores" , "idAtor = " + idAtor , null );
-
+        db.delete("atores" , "idAtor = " + idAtor , null );
     }
 
     public static List<Ator> getAtores(Context contexto){
@@ -44,6 +44,27 @@ public class AtorDAO {
             }while ( cursor.moveToNext() );
         }
 //        Log.i("atores do banco", "getAtores: " + listaDeAtores);
+        return listaDeAtores;
+    }
+
+    public static List<Ator> getAtoresById(Context contexto, int idfilme){
+        List<Ator> listaDeAtores = new ArrayList<Ator>();
+        Banco banco = new Banco(contexto);
+        SQLiteDatabase db = banco.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM atores where idfilme=" + idfilme, null);
+
+        if ( cursor.getCount() > 0 ){
+            cursor.moveToFirst();
+            do{
+                Ator a = new Ator();
+                a.setId(  cursor.getInt( 0 ) );
+                a.setNome( cursor.getString( 1 ) );
+                a.setFilme(cursor.getInt(2));
+                listaDeAtores.add( a );
+            }while ( cursor.moveToNext() );
+        }
+//        Log.i("Atores do banco", "getAtores: " + listaDeAtores);
         return listaDeAtores;
     }
 

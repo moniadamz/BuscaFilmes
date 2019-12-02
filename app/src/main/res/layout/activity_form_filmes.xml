@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FormFilmesActivity"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/activityFormFilmesNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="@string/filmeName"/>
+
+    <Button
+        android:id="@+id/activityFormFilmesBtSalvar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="#488B4A"
+        android:text="@string/saveButton"/>
+
+</LinearLayout>

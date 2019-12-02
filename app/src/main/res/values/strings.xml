@@ -1,6 +1,18 @@
 <resources>
-    <string name="app_name">BuscaFilmes</string>
-    <string name="searchButton">Pesquisar</string>
-    <string name="registerButton">Cadastrar</string>
-    <string name="search">Pesquisa</string>
+<string name="app_name">BuscaFilmes</string>
+<string name="searchButton">Pesquisar</string>
+<string name="saveButton">Salvar</string>
+<string name="hintAtor">Nome do Ator</string>
+<string name="registerButton">Cadastrar</string>
+<string name="filmeName">Nome do Filme</string>
+<string name="titleAppBarList">Lista de Filmes</string>
+<string name="titleAppBarAdd">Adicionando Filmes</string>
+<string name="titleAppBarPlayer">Adicionando Atores</string>
+<string name="search">Pesquisa</string>
+<string name="alertDelete">Excluir Filme</string>
+<string name="alertMessage">Confirma a exclusão do Filme</string>
+<string name="alertNeutralButton">Cancelar</string>
+<string name="positiveButton">Sim</string>
+
+
 </resources>

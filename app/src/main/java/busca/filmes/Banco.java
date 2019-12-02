@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class Banco extends SQLiteOpenHelper {
 
-    private static final int VERSAO = 1;
+    private static final int VERSAO = 5;
     private static final String NOME = "BuscaFilmes";
 
     public Banco(Context contexto){
@@ -19,23 +19,18 @@ public class Banco extends SQLiteOpenHelper {
                 "nome text," +
                 "ano text )";
 
-        String SQL_ATORES =  "" +
-                "CREATE TABLE IF NOT EXISTS atores " +
-                "(idator integer NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                "nome text )";
-
-        String SQL_FILMES_ATORES = "CREATE TABLE IF NOT EXISTS filmes_atores (id integer NOT NULL PRIMARY KEY AUTOINCREMENT," +
-                "FOREIGN KEY(idfilme) REFERENCES filmes(idfilme)," +
-                "FOREIGN KEY(idator) REFERENCES filmes(idator) )";
+        String SQL_ATORES =  "CREATE TABLE IF NOT EXISTS atores (idator integer NOT NULL PRIMARY KEY AUTOINCREMENT, nome text, idfilme integer, FOREIGN KEY(idfilme) REFERENCES Filme(idfilme))";
 
 
         sqLiteDatabase.execSQL(SQL_FILMES);
         sqLiteDatabase.execSQL(SQL_ATORES);
-        sqLiteDatabase.execSQL(SQL_FILMES_ATORES);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS filmes");
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS atores");
+        onCreate(sqLiteDatabase);
 
     }
 }

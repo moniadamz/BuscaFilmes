@@ -31,11 +31,11 @@ public class FilmesDAO {
         db.update("filmes" , valores, "id = " + filme.getId(), null );
 
     }
-    public static void excluir(Context contexto, int idFilme){
+    public static void excluir(Context contexto, int idfilme){
         Banco banco = new Banco(contexto);
         SQLiteDatabase db = banco.getWritableDatabase();
 
-        db.delete("filmes" , "idFilme = " + idFilme , null );
+        db.delete("filmes" , "idfilme = " + idfilme , null );
 
     }
 
@@ -48,19 +48,19 @@ public class FilmesDAO {
         if ( cursor.getCount() > 0 ){
             cursor.moveToFirst();
             do{
-                Filme t = new Filme();
-                t.setId(  cursor.getInt( 0 ) );
-                t.setNome( cursor.getString( 1 ) );
-                listaDeTimes.add( t );
+                Filme f = new Filme();
+                f.setId(  cursor.getInt( 0 ) );
+                f.setNome( cursor.getString( 1 ) );
+                listaDeTimes.add( f );
             }while ( cursor.moveToNext() );
         }
         return listaDeTimes;
     }
-    public static Filme getFilmeById(Context contexto, int idFilme){
+    public static Filme getFilmeById(Context contexto, int idfilme){
         Banco banco = new Banco(contexto);
         SQLiteDatabase db = banco.getReadableDatabase();
 
-        String sql = "SELECT * FROM filmes where id = " + idFilme;
+        String sql = "SELECT * FROM filmes where id = " + idfilme;
         Cursor cursor = db.rawQuery(sql,null);
 
         if ( cursor.getCount() > 0 ){
@@ -76,13 +76,13 @@ public class FilmesDAO {
             return null;
         }
     }
-    public static List<Filme> getFilmeByName(Context contexto, String nomeTime){
+    public static List<Filme> getFilmeByName(Context contexto, String nomeFilme){
         Banco banco = new Banco(contexto);
         SQLiteDatabase db = banco.getReadableDatabase();
         List<Filme> filme = new ArrayList<Filme>();
 
 //        String sql = "SELECT * FROM filmes where nome = " + nomeTime;
-        Cursor cursor = db.rawQuery("SELECT * FROM filmes where nome like '%" + nomeTime + "%'", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM filmes where nome like '%" + nomeFilme + "%'", null);
 
         if ( cursor.getCount() > 0 ){
             cursor.moveToFirst();

@@ -1,8 +1,11 @@
 package busca.filmes;
 
+import androidx.annotation.NonNull;
+
 public class Ator {
     private int id;
     private String nome;
+    private int filme;
 
     public int getId() {
         return id;
@@ -19,4 +22,11 @@ public class Ator {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    public int getFilme() { return filme; }
+
+    public void setFilme(int filme) { this.filme = filme; }
+
+    @NonNull
+    @Override
+    public String toString() { return nome; }
 }

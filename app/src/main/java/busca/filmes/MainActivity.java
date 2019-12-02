@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         registraFilme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, FormTimesActivity.class);
+                Intent i = new Intent(MainActivity.this, FormFilmesActivity.class);
                 startActivity( i );
             }
         });
