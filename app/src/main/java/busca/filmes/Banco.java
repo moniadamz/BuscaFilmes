@@ -21,7 +21,6 @@ public class Banco extends SQLiteOpenHelper {
 
         String SQL_ATORES =  "CREATE TABLE IF NOT EXISTS atores (idator integer NOT NULL PRIMARY KEY AUTOINCREMENT, nome text, idfilme integer, FOREIGN KEY(idfilme) REFERENCES Filme(idfilme))";
 
-
         sqLiteDatabase.execSQL(SQL_FILMES);
         sqLiteDatabase.execSQL(SQL_ATORES);
     }

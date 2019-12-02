@@ -16,7 +16,7 @@ import java.util.List;
 public class Pesquisa extends AppCompatActivity {
     private Button pesquisar;
     private EditText digitaFilme;
-    private final ListaFilmesView listaFilmesView = new ListaFilmesView(this);
+//    private final ListaFilmesView listaFilmesView = new ListaFilmesView(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class Pesquisa extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 pesquisar();
-                configuraLista();
+                //configuraLista();
                 //pesquisarTudao();
             }
         });
@@ -53,12 +53,12 @@ public class Pesquisa extends AppCompatActivity {
         listaFilmes.setAdapter(adapter);
     }
 
-    private void configuraLista() {
-        ListView listaDeFilmes = findViewById(R.id.resultadoPesquisa);
-//        listaFilmesView.configuraAdapter(listaDeFilmes);
-//        configuraListenerDeCliquePorItem(listaDeFilmes);
-        registerForContextMenu(listaDeFilmes);
-    }
+//    private void configuraLista() {
+//        ListView listaDeFilmes = findViewById(R.id.resultadoPesquisa);
+////        listaFilmesView.configuraAdapter(listaDeFilmes);
+////        configuraListenerDeCliquePorItem(listaDeFilmes);
+//        registerForContextMenu(listaDeFilmes);
+//    }
 
     private void pesquisarTudao(){
         String nome = digitaFilme.getText().toString();

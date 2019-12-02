@@ -1,4 +1,4 @@
-#Mon Dec 02 18:49:44 BRST 2019
+#Mon Dec 02 20:24:01 BRST 2019
 base.0=/home/bonilha/.git/BuscaFilmes/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
