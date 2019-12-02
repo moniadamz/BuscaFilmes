@@ -18,8 +18,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-import javax.security.auth.login.LoginException;
-
 public class ListaFilmesActivity extends AppCompatActivity {
 
     private FilmesDAO dao = new FilmesDAO();

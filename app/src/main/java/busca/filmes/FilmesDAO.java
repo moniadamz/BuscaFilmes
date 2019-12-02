@@ -36,6 +36,7 @@ public class FilmesDAO {
         Banco banco = new Banco(contexto);
         SQLiteDatabase db = banco.getWritableDatabase();
 
+        db.delete("atores" , "idfilme = " + idfilme , null);
         db.delete("filmes" , "idfilme = " + idfilme , null );
 
     }
@@ -93,11 +94,11 @@ public class FilmesDAO {
             cursor.moveToFirst();
             do{
                 Filme t = new Filme();
-                t.setId(  cursor.getInt( 0 ) );
-                t.setNome( cursor.getString( 1 ) );
+                //t.setId(  cursor.getInt( 0 ) );
+                t.setNome( cursor.getString( 0 ) );
                 filme.add( t );
                 Ator a = new Ator();
-                a.setId( cursor.getInt(0 ) );
+                //a.setId( cursor.getInt(0 ) );
                 a.setNome( cursor.getString(1));
                 ator.add( a );
             }while ( cursor.moveToNext() );
@@ -112,22 +113,29 @@ public class FilmesDAO {
         SQLiteDatabase db = banco.getReadableDatabase();
         List tudao = new ArrayList<>();
 
-        Cursor cursor = db.rawQuery("SELECT e.nome, d.nome FROM filmes e, atores d where e.nome like '%" + nomeBusca + "%'" + " AND d.nome like '%" + nomeBusca + "%'", null);
+        Cursor cursorFilme = db.rawQuery("SELECT nome FROM filmes where nome like '%" + nomeBusca + "%'", null);
+        Cursor cursorAtor = db.rawQuery("SELECT nome FROM atores where nome like '%" + nomeBusca + "%'", null);
 
-        if ( cursor.getCount() > 0 ){
-            cursor.moveToFirst();
+        if ( cursorFilme.getCount() > 0 ){
+            cursorFilme.moveToFirst();
             do{
                 Filme t = new Filme();
-                t.setId(  cursor.getInt( 0 ) );
-                t.setNome( cursor.getString( 1 ) );
+                //t.setId(  cursor.getInt( 0 ) );
+                t.setNome( cursorFilme.getString( 0 ) );
                 tudao.add( t );
-                Ator a = new Ator();
-                a.setId( cursor.getInt(0 ) );
-                a.setNome( cursor.getString(1));
-                tudao.add( a );
-            }while ( cursor.moveToNext() );
+            }while ( cursorFilme.moveToNext() );
         }
-        Log.i("Retornando Filmes e tudo mais", "getTimeByName: " + tudao);
+        if ( cursorAtor.getCount() > 0 ){
+            cursorAtor.moveToFirst();
+            do{
+                Ator a = new Ator();
+                //a.setId( cursor.getInt(0 ) );
+                a.setNome( cursorAtor.getString(0));
+                tudao.add( a );
+            }while ( cursorAtor.moveToNext() );
+        }
+
+        Log.i("Retornando Filmes e tudo mais", "getTUDAOByName: " + tudao);
         return tudao;
     }
 }
