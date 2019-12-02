@@ -118,11 +118,11 @@ public class FilmesDAO {
             cursor.moveToFirst();
             do{
                 Filme t = new Filme();
-                t.setId(  cursor.getInt( 0 ) );
-                t.setNome( cursor.getString( 1 ) );
+                //t.setId(  cursor.getInt( 0 ) );
+                t.setNome( cursor.getString( 0 ) );
                 tudao.add( t );
                 Ator a = new Ator();
-                a.setId( cursor.getInt(0 ) );
+                //a.setId( cursor.getInt(0 ) );
                 a.setNome( cursor.getString(1));
                 tudao.add( a );
             }while ( cursor.moveToNext() );

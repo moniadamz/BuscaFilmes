@@ -62,7 +62,7 @@ public class Pesquisa extends AppCompatActivity {
             listaTudao.setEnabled( true );
         }
 
-        ArrayAdapter<Filme> adapter = new ArrayAdapter<Filme>(this, android.R.layout.simple_list_item_1, tudao);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, tudao);
         listaTudao.setAdapter(adapter);
     }
 }
