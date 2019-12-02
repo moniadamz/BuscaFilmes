@@ -29,7 +29,6 @@ public class Pesquisa extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 pesquisar();
-
             }
         });
     }

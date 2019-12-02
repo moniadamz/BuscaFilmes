@@ -212,6 +212,10 @@
         "source": "/root/.gradle/caches/transforms-2/files-2.1/2946ca0ea6c89dab7d7d9fbc18e54292/material-1.0.0/res/animator/mtrl_chip_state_list_anim.xml"
     },
     {
+        "merged": "/home/bonilha/.git/BuscaFilmes/app/build/intermediates/res/merged/debug/layout_modelo_filmes.xml.flat",
+        "source": "/home/bonilha/.git/BuscaFilmes/app/src/main/res/layout/modelo_filmes.xml"
+    },
+    {
         "merged": "/home/bonilha/.git/BuscaFilmes/app/build/intermediates/res/merged/debug/color_mtrl_btn_text_btn_ripple_color.xml.flat",
         "source": "/root/.gradle/caches/transforms-2/files-2.1/2946ca0ea6c89dab7d7d9fbc18e54292/material-1.0.0/res/color/mtrl_btn_text_btn_ripple_color.xml"
     },

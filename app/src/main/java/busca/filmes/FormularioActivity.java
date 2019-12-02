@@ -69,6 +69,7 @@ public class FormularioActivity extends AppCompatActivity {
             atorCriado.setFilme(idfilme);
 
             daoAtor.inserir(this, atorCriado);
+            carregarLista();
             finish();
         }
     }
